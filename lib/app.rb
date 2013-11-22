@@ -1,7 +1,7 @@
 require './scraper'
 require './student'
 
-scraper_2 = my_scraper = Scraper.new("http://flatironschool-bk.herokuapp.com")
+scraper_2 = Scraper.new("http://flatironschool-bk.herokuapp.com")
 
 student_names = scraper_2.get_students_names
 
