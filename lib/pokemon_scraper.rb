@@ -13,13 +13,13 @@ class Scraper
 	end
 
 	def get_pokemon
-		test = html.search('title')
-		test2 = test.to_s
-		test3 = test2.scan(/\w+/)
-		test3[1]
+		test = html.search('td').collect { |td| td.text }
 	end
 
 end
 
-p_scraper = Scraper.new("http://bulbapedia.bulbagarden.net/wiki/Weedle")
+p_scraper = Scraper.new("http://bulbapedia.bulbagarden.net/wiki/Species")
+
+puts p_scraper.get_pokemon.inspect
+
 

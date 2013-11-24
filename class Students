@@ -1,0 +1,15 @@
+class Students
+
+def initialize (name)
+	@name = name
+	end
+
+def add_blog (blog_name)
+	@blog_name = blog_name
+	end
+
+def add_twitter(twitter_url)
+	@twitter = twitter_url
+	end
+
+end
