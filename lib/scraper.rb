@@ -11,22 +11,27 @@ class Scraper
 	end
 
 	def get_students_names
-		test = html.search('h3')
-		test.each do |h3|
+		test = html.search('h3').each do |h3|
 			puts h3.text
 		end
 	end
 	
 	def get_students_blogs
 		blogs = []
-		test1 = html.search('ul.social a.blog @href')
-	
+		html.search('ul.social').each do |blog_url|
+			blogs << blog_url.search('a.blog @href').text
+		end
+		puts blogs
 	end
 
 	def get_students_twitter
-		test4 = html.search('a.twitter @href')
+		twitter = []
+		html.search('ul.social').each do |twitter_url|
+			twitter << twitter_url.search('a.twitter @href').text
+		end
+		puts twitter
 	end
 end
 
 my_scraper = Scraper.new("http://flatironschool-bk.herokuapp.com")
-puts my_scraper.get_students_blogs
+puts my_scraper.get_students_twitter
